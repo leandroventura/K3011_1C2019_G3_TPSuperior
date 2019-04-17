@@ -21,5 +21,15 @@ namespace K3011_1C2019_G3_TPSuperior
         {
             Application.Exit();
         }
+
+        private void PantallaPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

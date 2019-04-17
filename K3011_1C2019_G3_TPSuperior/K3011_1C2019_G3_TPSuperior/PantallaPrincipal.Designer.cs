@@ -82,19 +82,19 @@
             // básicasToolStripMenuItem
             // 
             this.básicasToolStripMenuItem.Name = "básicasToolStripMenuItem";
-            this.básicasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.básicasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.básicasToolStripMenuItem.Text = "Básicas";
             // 
             // avanzadasToolStripMenuItem
             // 
             this.avanzadasToolStripMenuItem.Name = "avanzadasToolStripMenuItem";
-            this.avanzadasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.avanzadasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.avanzadasToolStripMenuItem.Text = "Avanzadas";
             // 
             // fasoresToolStripMenuItem
             // 
             this.fasoresToolStripMenuItem.Name = "fasoresToolStripMenuItem";
-            this.fasoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fasoresToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.fasoresToolStripMenuItem.Text = "Fasores";
             // 
             // label1
@@ -126,6 +126,7 @@
             this.label3.Size = new System.Drawing.Size(195, 44);
             this.label3.TabIndex = 3;
             this.label3.Text = "Ventura, Leandro Emanuel\r\nMarceletti, Marcelo";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -151,6 +152,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "PantallaPrincipal";
             this.Text = "NCOM";
+            this.Load += new System.EventHandler(this.PantallaPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
