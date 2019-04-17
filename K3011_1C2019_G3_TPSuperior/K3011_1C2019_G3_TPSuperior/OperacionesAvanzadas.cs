@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace K3011_1C2019_G3_TPSuperior
 {
-    public partial class Form1 : Form
+    public partial class OperacionesAvanzadas : Form
     {
-        public Form1()
+        public OperacionesAvanzadas()
         {
             InitializeComponent();
+        }
+
+        private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

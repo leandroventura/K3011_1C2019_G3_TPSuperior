@@ -16,7 +16,7 @@ namespace K3011_1C2019_G3_TPSuperior
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new PantallaPrincipal());
         }
     }
 }

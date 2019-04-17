@@ -45,14 +45,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="NumeroComplejo.cs" />
+    <Compile Include="OperacionesAvanzadas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="OperacionesAvanzadas.Designer.cs">
+      <DependentUpon>OperacionesAvanzadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OperacionesBasicas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OperacionesBasicas.Designer.cs">
+      <DependentUpon>OperacionesBasicas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OperacionesFasores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OperacionesFasores.Designer.cs">
+      <DependentUpon>OperacionesFasores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PantallaPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PantallaPrincipal.Designer.cs">
+      <DependentUpon>PantallaPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="OperacionesAvanzadas.resx">
+      <DependentUpon>OperacionesAvanzadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OperacionesBasicas.resx">
+      <DependentUpon>OperacionesBasicas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OperacionesFasores.resx">
+      <DependentUpon>OperacionesFasores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PantallaPrincipal.resx">
+      <DependentUpon>PantallaPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -74,6 +105,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Imagenes\IconoNCOM.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
