@@ -40,6 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.transformacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,6 +73,7 @@
             // operacionesToolStripMenuItem
             // 
             this.operacionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.transformacionesToolStripMenuItem,
             this.básicasToolStripMenuItem,
             this.avanzadasToolStripMenuItem,
             this.fasoresToolStripMenuItem});
@@ -82,19 +84,19 @@
             // básicasToolStripMenuItem
             // 
             this.básicasToolStripMenuItem.Name = "básicasToolStripMenuItem";
-            this.básicasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.básicasToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.básicasToolStripMenuItem.Text = "Básicas";
             // 
             // avanzadasToolStripMenuItem
             // 
             this.avanzadasToolStripMenuItem.Name = "avanzadasToolStripMenuItem";
-            this.avanzadasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.avanzadasToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.avanzadasToolStripMenuItem.Text = "Avanzadas";
             // 
             // fasoresToolStripMenuItem
             // 
             this.fasoresToolStripMenuItem.Name = "fasoresToolStripMenuItem";
-            this.fasoresToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.fasoresToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.fasoresToolStripMenuItem.Text = "Fasores";
             // 
             // label1
@@ -121,11 +123,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(62, 98);
+            this.label3.Location = new System.Drawing.Point(55, 98);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(195, 44);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Ventura, Leandro Emanuel\r\nMarceletti, Marcelo";
+            this.label3.Text = "Ventura, Leandro Emanuel\r\nMarceletti, Marcelo\nRíos,Brian";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
@@ -137,6 +139,12 @@
             this.label4.Size = new System.Drawing.Size(119, 20);
             this.label4.TabIndex = 4;
             this.label4.Text = "Grupo 3 - K3011";
+            // 
+            // transformacionesToolStripMenuItem
+            // 
+            this.transformacionesToolStripMenuItem.Name = "transformacionesToolStripMenuItem";
+            this.transformacionesToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.transformacionesToolStripMenuItem.Text = "Transformaciones";
             // 
             // PantallaPrincipal
             // 
@@ -173,6 +181,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolStripMenuItem transformacionesToolStripMenuItem;
     }
 }
 

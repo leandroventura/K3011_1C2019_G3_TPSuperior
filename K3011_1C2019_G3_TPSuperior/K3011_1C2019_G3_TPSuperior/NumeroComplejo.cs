@@ -33,17 +33,91 @@ namespace K3011_1C2019_G3_TPSuperior
             else
             {
                 //si no está en forma binómica, calcular su Re(z) e Im(z)
-                NumeroComplejo z = new NumeroComplejo(0, 0, Forma.Polar);
+                NumeroComplejo z = new NumeroComplejo(0, 0, Forma.Binomica);
                 
-                z.forma = Forma.Polar;
+                //z.forma = Forma.Binomica;
                 z.a = this.a* Math.Cos(this.b);
                 z.b = this.a* Math.Sin(this.b);
                 return z;
             }
         }
-        public double calcularModulo()
+        public NumeroComplejo formaPolar()
         {
-            return 0;
+            if (this.forma == Forma.Polar)
+            {
+                return this;
+            }
+            else
+            {
+                //si no está en forma polar, calcular su módulo y argumento
+                //a : modulo, b:argumento
+                NumeroComplejo z = new NumeroComplejo(0, 0, Forma.Polar);
+                double parteReal = this.a;
+                double parteIm = this.b;
+                int cuadrante = this.cuadrante();
+                z.a = Math.Sqrt((parteReal*parteReal) + (parteIm*parteIm));
+                //si no es imaginario puro
+                if(parteReal != 0)
+                {
+                    z.b = Math.Atan(parteIm / parteReal); //chequear que devuelva en radianes
+                    z = z.corregirArgumento(cuadrante);
+                }
+                //si es imaginario puro
+                else
+                {
+                    if (parteIm > 0)
+                    {
+                        z.b = Math.PI/2;
+                    }else if (parteIm < 0)
+                    {
+                        z.b = Math.PI * 3/4;
+                    }
+                }
+                return z;
+            }
+        }
+
+        public NumeroComplejo corregirArgumento(int cuadrante)
+        {
+            switch(cuadrante){
+                case 2:
+                case 3:
+                    this.b = this.b + Math.PI;
+                break;
+                case 4:
+                    this.b = this.b + (2 * Math.PI);
+                break;
+            }
+            return this;
+        }
+
+        //esta solo sirve si el complejo esta en binomica
+        public int cuadrante()
+        {
+            int cuadrante = 0;
+            if(this.forma == Forma.Binomica)
+            {
+                double parteReal = this.a;
+                double parteIm = this.b;
+
+                if(parteReal>0 && parteIm > 0)
+                {
+                    cuadrante = 1;
+                }
+                if (parteReal < 0 && parteIm > 0)
+                {
+                    cuadrante = 2;
+                }
+                if (parteReal < 0 && parteIm < 0)
+                {
+                    cuadrante = 3;
+                }
+                if (parteReal > 0 && parteIm < 0)
+                {
+                    cuadrante = 4;
+                }
+            }
+            return cuadrante;
         }
 
     }
