@@ -34,10 +34,10 @@ namespace K3011_1C2019_G3_TPSuperior
             {
                 //si no está en forma binómica, calcular su Re(z) e Im(z)
                 NumeroComplejo z = new NumeroComplejo(0, 0, Forma.Binomica);
-                
+
                 //z.forma = Forma.Binomica;
-                z.a = this.a* Math.Cos(this.b);
-                z.b = this.a* Math.Sin(this.b);
+                z.a = this.a * Math.Cos(this.b);
+                z.b = this.a * Math.Sin(this.b);
                 return z;
             }
         }
@@ -55,9 +55,9 @@ namespace K3011_1C2019_G3_TPSuperior
                 double parteReal = this.a;
                 double parteIm = this.b;
                 int cuadrante = this.cuadrante();
-                z.a = Math.Sqrt((parteReal*parteReal) + (parteIm*parteIm));
+                z.a = Math.Sqrt((parteReal * parteReal) + (parteIm * parteIm));
                 //si no es imaginario puro
-                if(parteReal != 0)
+                if (parteReal != 0)
                 {
                     z.b = Math.Atan(parteIm / parteReal); //chequear que devuelva en radianes
                     z = z.corregirArgumento(cuadrante);
@@ -67,10 +67,11 @@ namespace K3011_1C2019_G3_TPSuperior
                 {
                     if (parteIm > 0)
                     {
-                        z.b = Math.PI/2;
-                    }else if (parteIm < 0)
+                        z.b = Math.PI / 2;
+                    }
+                    else if (parteIm < 0)
                     {
-                        z.b = Math.PI * 3/4;
+                        z.b = Math.PI * 3 / 4;
                     }
                 }
                 return z;
@@ -79,14 +80,15 @@ namespace K3011_1C2019_G3_TPSuperior
 
         public NumeroComplejo corregirArgumento(int cuadrante)
         {
-            switch(cuadrante){
+            switch (cuadrante)
+            {
                 case 2:
                 case 3:
                     this.b = this.b + Math.PI;
-                break;
+                    break;
                 case 4:
                     this.b = this.b + (2 * Math.PI);
-                break;
+                    break;
             }
             return this;
         }
@@ -95,12 +97,12 @@ namespace K3011_1C2019_G3_TPSuperior
         public int cuadrante()
         {
             int cuadrante = 0;
-            if(this.forma == Forma.Binomica)
+            if (this.forma == Forma.Binomica)
             {
                 double parteReal = this.a;
                 double parteIm = this.b;
 
-                if(parteReal>0 && parteIm > 0)
+                if (parteReal > 0 && parteIm > 0)
                 {
                     cuadrante = 1;
                 }
@@ -123,7 +125,7 @@ namespace K3011_1C2019_G3_TPSuperior
         public NumeroComplejo sumarComplejos(NumeroComplejo z2)
         {
             NumeroComplejo z3 = new NumeroComplejo(0, 0, Forma.Binomica);
-            if(this.forma == Forma.Binomica)
+            if (this.forma == Forma.Binomica)
             {
                 if (z2.forma == Forma.Binomica)
                 {
@@ -205,5 +207,16 @@ namespace K3011_1C2019_G3_TPSuperior
             z3.b = (this.a * z2.b) + (z2.a * this.b);
             return z3;
         }
+
+        public NumeroComplejo DividirComplejos(NumeroComplejo z2)
+        {
+            NumeroComplejo z3 = new NumeroComplejo(0, 0, Forma.Binomica);
+            this.formaBinomica();
+            z2.formaBinomica();
+            z3.a = ((this.a * z2.a) + (this.b * z2.b)) / (Math.Pow(z2.a,2) + Math.Pow(z2.b, 2));
+            z3.b = ((this.b * z2.a) - (this.a * z2.b)) / (Math.Pow(z2.a, 2) + Math.Pow(z2.b, 2));
+            return z3;
+        }
     }
+
 }
