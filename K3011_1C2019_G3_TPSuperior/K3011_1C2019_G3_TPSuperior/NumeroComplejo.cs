@@ -122,19 +122,20 @@ namespace K3011_1C2019_G3_TPSuperior
 
         public NumeroComplejo sumarComplejos(NumeroComplejo z2)
         {
+            NumeroComplejo z3 = new NumeroComplejo(0, 0, Forma.Binomica);
             if(this.forma == Forma.Binomica)
             {
                 if (z2.forma == Forma.Binomica)
                 {
-                    this.a += z2.a;
-                    this.b += z2.b;
-                    return this;
+                    z3.a = this.a + z2.a;
+                    z3.b = this.b + z2.b;
+                    return z3;
                 }
                 else
                 {
                     z2 = z2.formaBinomica();
-                    this.a += z2.a;
-                    this.b += z2.b;
+                    z3.a = this.a + z2.a;
+                    z3.b = this.b + z2.b;
                     return this;
                 }
             }
@@ -142,35 +143,37 @@ namespace K3011_1C2019_G3_TPSuperior
             {
                 if (z2.forma == Forma.Binomica)
                 {
-                    this.a += z2.a;
-                    this.b += z2.b;
-                    return this.formaPolar();
+                    this.formaBinomica();
+                    z3.a = this.a + z2.a;
+                    z3.b = this.b + z2.b;
+                    return z3.formaPolar();
                 }
                 else
                 {
                     z2 = z2.formaBinomica();
-                    this.a += z2.a;
-                    this.b += z2.b;
-                    return this.formaPolar();
+                    z3.a = this.a + z2.a;
+                    z3.b = this.b + z2.b;
+                    return z3.formaPolar();
                 }
             }
         }
 
         public NumeroComplejo restarComplejos(NumeroComplejo z2)
         {
+            NumeroComplejo z3 = new NumeroComplejo(0, 0, Forma.Binomica);
             if (this.forma == Forma.Binomica)
             {
                 if (z2.forma == Forma.Binomica)
                 {
-                    this.a -= z2.a;
-                    this.b -= z2.b;
-                    return this;
+                    z3.a = this.a - z2.a;
+                    z3.b = this.b - z2.b;
+                    return z3;
                 }
                 else
                 {
                     z2 = z2.formaBinomica();
-                    this.a -= z2.a;
-                    this.b -= z2.b;
+                    z3.a = this.a - z2.a;
+                    z3.b = this.b - z2.b;
                     return this;
                 }
             }
@@ -178,16 +181,17 @@ namespace K3011_1C2019_G3_TPSuperior
             {
                 if (z2.forma == Forma.Binomica)
                 {
-                    this.a -= z2.a;
-                    this.b -= z2.b;
-                    return this.formaPolar();
+                    this.formaBinomica();
+                    z3.a = this.a - z2.a;
+                    z3.b = this.b - z2.b;
+                    return z3.formaPolar();
                 }
                 else
                 {
                     z2 = z2.formaBinomica();
-                    this.a -= z2.a;
-                    this.b -= z2.b;
-                    return this.formaPolar();
+                    z3.a = this.a - z2.a;
+                    z3.b = this.b - z2.b;
+                    return z3.formaPolar();
                 }
             }
         }
@@ -198,7 +202,8 @@ namespace K3011_1C2019_G3_TPSuperior
             this.formaBinomica();
             z2.formaBinomica();
             z3.a = (this.a * z2.a) - (this.b * z2.b);
-            z3.b = (this.a * z2.b) + (z1.a * this.b);
+            z3.b = (this.a * z2.b) + (z2.a * this.b);
+            return z3;
         }
     }
 }
