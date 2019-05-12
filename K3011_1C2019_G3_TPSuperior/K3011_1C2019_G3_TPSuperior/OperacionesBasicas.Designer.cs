@@ -77,7 +77,8 @@
             this.textBoxComplejo1.Name = "textBoxComplejo1";
             this.textBoxComplejo1.Size = new System.Drawing.Size(219, 31);
             this.textBoxComplejo1.TabIndex = 2;
-            this.textBoxComplejo1.Text = "(2,3)";
+            this.textBoxComplejo1.Text = "";
+            
             this.textBoxComplejo1.TextChanged += new System.EventHandler(this.textBoxComplejo1_TextChanged);
             // 
             // label2
@@ -137,7 +138,7 @@
             this.textBoxComplejo2.Name = "textBoxComplejo2";
             this.textBoxComplejo2.Size = new System.Drawing.Size(219, 31);
             this.textBoxComplejo2.TabIndex = 6;
-            this.textBoxComplejo2.Text = "(-5,5)";
+            this.textBoxComplejo2.Text = "";
             // 
             // buttonOperar
             // 

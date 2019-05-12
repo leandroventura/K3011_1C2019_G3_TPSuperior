@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace K3011_1C2019_G3_TPSuperior
 {
@@ -32,25 +33,23 @@ namespace K3011_1C2019_G3_TPSuperior
             {
                 if (!this.esComplejoValido(textBoxComplejo1.Text) || !this.esComplejoValido(textBoxComplejo2.Text))
                 {
-                    MessageBox.Show("Debe Ingresar los números complejos de la siguiente manera: (a,b) o [a;b]");
+                    MessageBox.Show("Debe Ingresar los números complejos de la siguiente manera: forma binómica (a;b) o forma polar [a;b]");
+                    //MessageBox.Show(textBoxComplejo1.Text, textBoxComplejo2.Text);
                 }
                 else
                 {
                     //aca se sacarian los numeros de cada textbox, de su expresion regular, se crean los complejos y se ejecuta la operacion correspondiente
-                    //valorAComplejo1 = textBoxComplejo1.Text.obtenervalor1
-                    //valorBComplejo1 = textBoxComplejo1.Text.obtenervalor2
-                    //formaComplejo1 = textBoxComplejo1.Text.obtenerforma
-                    //NumeroComplejo num1 = new NumeroComplejo(valorAComplejo1, valorAComplejo2, formaComplejo1);
-                    //hago lo mismo para el otro complejo
+                    
                     //luego opero
 
                     //por ahora los hardcodeo...
-                    NumeroComplejo z1 = new NumeroComplejo(2, 3, NumeroComplejo.Forma.Binomica);
-                    NumeroComplejo z2 = new NumeroComplejo(-5, 5, NumeroComplejo.Forma.Binomica);
-                    NumeroComplejo zres = new NumeroComplejo(0, 0, NumeroComplejo.Forma.Binomica);
+                    //NumeroComplejo z1 = new NumeroComplejo(2, 3, NumeroComplejo.Forma.Binomica);
+                    //algo asi
+                    NumeroComplejo z1 = this.parsearComplejo(textBoxComplejo1.Text);
+                    NumeroComplejo z2 = this.parsearComplejo(textBoxComplejo2.Text);
 
-                    z1 = z1.formaPolar();
-                    z2 = z2.formaPolar();
+                    NumeroComplejo zres = new NumeroComplejo(0, 0, NumeroComplejo.Forma.Binomica);
+                    
                     if (comboBoxOperaciones.SelectedIndex == -1)
                     {
                         MessageBox.Show("Debe seleccionar una operación!");
@@ -88,7 +87,54 @@ namespace K3011_1C2019_G3_TPSuperior
         private bool esComplejoValido(string complejo)
         {
             //aca se validaria la expresion regular y se devolveria el resultado de la validacion
-            return true;
+            //expresion para forma polar: ^[[][-]?[0-9]+([,][0-9]+)?[;][-]?[0-9]+([,][0-9]+)?[]]$
+            //expresion para forma binomica: ^[(][-]?[0-9]+([,][0-9]+)?[;][-]?[0-9]+([,][0-9]+)?[)]$
+            //explicacion en https://www.youtube.com/watch?v=Er8xgxdK8MY
+            //(recordar expresiones regulares de sintaxis... jaja)
+
+            Regex ERPolar = new Regex("^[[](?<a>[-]?[0-9]+([,][0-9]+)?)[;](?<b>[-]?[0-9]+([,][0-9]+)?)[]]$");
+            Regex ERBinomica = new Regex("^[(](?<a>[-]?[0-9]+([,][0-9]+)?)[;](?<b>[-]?[0-9]+([,][0-9]+)?)[)]$");
+
+            if (ERPolar.IsMatch(complejo) || ERBinomica.IsMatch(complejo))
+            {
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private NumeroComplejo parsearComplejo(string complejo)
+        {
+
+            Regex ERPolar = new Regex("^[[](?<a>[-]?[0-9]+([,][0-9]+)?)[;](?<b>[-]?[0-9]+([,][0-9]+)?)[]]$");
+            Regex ERBinomica = new Regex("^[(](?<a>[-]?[0-9]+([,][0-9]+)?)[;](?<b>[-]?[0-9]+([,][0-9]+)?)[)]$");
+            if (ERPolar.IsMatch(complejo))
+            {
+                NumeroComplejo z = new NumeroComplejo(0, 0, NumeroComplejo.Forma.Polar);
+
+                foreach(Match mt in ERPolar.Matches(complejo))
+                {
+                    z.a = Double.Parse(mt.Groups["a"].Value);
+                    z.b = Double.Parse(mt.Groups["b"].Value);
+                }
+                return z;
+
+            }
+            else //if(ERBinomica.IsMatch(complejo))
+            {
+                NumeroComplejo z = new NumeroComplejo(0, 0, NumeroComplejo.Forma.Binomica);
+
+                foreach (Match mt in ERBinomica.Matches(complejo))
+                {
+                    z.a = Double.Parse(mt.Groups["a"].Value);
+                    z.b = Double.Parse(mt.Groups["b"].Value);
+
+                }
+                return z;
+
+            }
         }
 
         private void textBoxComplejo1_TextChanged(object sender, EventArgs e)
