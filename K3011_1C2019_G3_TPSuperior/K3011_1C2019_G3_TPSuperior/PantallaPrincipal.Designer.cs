@@ -86,6 +86,8 @@
             this.básicasToolStripMenuItem.Name = "básicasToolStripMenuItem";
             this.básicasToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.básicasToolStripMenuItem.Text = "Básicas";
+            básicasToolStripMenuItem.Click += new System.EventHandler(this.básicasToolStripMenuItem_Click);
+
             // 
             // avanzadasToolStripMenuItem
             // 

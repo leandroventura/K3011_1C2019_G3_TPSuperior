@@ -47,37 +47,47 @@
             // 
             this.comboBoxOperaciones.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxOperaciones.FormattingEnabled = true;
-            this.comboBoxOperaciones.Location = new System.Drawing.Point(53, 73);
+            this.comboBoxOperaciones.Items.AddRange(new object[] {
+            "Sumar",
+            "Restar",
+            "Multiplicar",
+            "Dividir"});
+            this.comboBoxOperaciones.Location = new System.Drawing.Point(71, 90);
+            this.comboBoxOperaciones.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxOperaciones.Name = "comboBoxOperaciones";
-            this.comboBoxOperaciones.Size = new System.Drawing.Size(157, 28);
+            this.comboBoxOperaciones.Size = new System.Drawing.Size(208, 32);
             this.comboBoxOperaciones.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 39);
+            this.label1.Location = new System.Drawing.Point(16, 48);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 22);
+            this.label1.Size = new System.Drawing.Size(251, 26);
             this.label1.TabIndex = 1;
             this.label1.Text = "Seleccione una operación:";
             // 
             // textBoxComplejo1
             // 
             this.textBoxComplejo1.Font = new System.Drawing.Font("Trebuchet MS", 12F);
-            this.textBoxComplejo1.Location = new System.Drawing.Point(494, 58);
+            this.textBoxComplejo1.Location = new System.Drawing.Point(659, 71);
+            this.textBoxComplejo1.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxComplejo1.Name = "textBoxComplejo1";
-            this.textBoxComplejo1.Size = new System.Drawing.Size(165, 26);
+            this.textBoxComplejo1.Size = new System.Drawing.Size(219, 31);
             this.textBoxComplejo1.TabIndex = 2;
-            this.textBoxComplejo1.Text = "(a;b) o [a;b]";
+            this.textBoxComplejo1.Text = "(2,3)";
+            this.textBoxComplejo1.TextChanged += new System.EventHandler(this.textBoxComplejo1_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(240, 55);
+            this.label2.Location = new System.Drawing.Point(320, 68);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(221, 22);
+            this.label2.Size = new System.Drawing.Size(281, 26);
             this.label2.TabIndex = 3;
             this.label2.Text = "Ingrese un Número Complejo:";
             // 
@@ -85,19 +95,22 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Trebuchet MS", 12F);
-            this.label3.Location = new System.Drawing.Point(240, 104);
+            this.label3.Location = new System.Drawing.Point(320, 128);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(235, 22);
+            this.label3.Size = new System.Drawing.Size(297, 26);
             this.label3.TabIndex = 4;
             this.label3.Text = "Ingrese otro Número Complejo:";
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(666, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(888, 28);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -106,31 +119,33 @@
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(71, 24);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(124, 26);
             this.salirToolStripMenuItem.Text = "Cerrar";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // textBoxComplejo2
             // 
             this.textBoxComplejo2.Font = new System.Drawing.Font("Trebuchet MS", 12F);
-            this.textBoxComplejo2.Location = new System.Drawing.Point(494, 101);
+            this.textBoxComplejo2.Location = new System.Drawing.Point(659, 124);
+            this.textBoxComplejo2.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxComplejo2.Name = "textBoxComplejo2";
-            this.textBoxComplejo2.Size = new System.Drawing.Size(165, 26);
+            this.textBoxComplejo2.Size = new System.Drawing.Size(219, 31);
             this.textBoxComplejo2.TabIndex = 6;
-            this.textBoxComplejo2.Text = "(a;b) o [a;b]";
+            this.textBoxComplejo2.Text = "(-5,5)";
             // 
             // buttonOperar
             // 
             this.buttonOperar.Font = new System.Drawing.Font("Trebuchet MS", 12F);
-            this.buttonOperar.Location = new System.Drawing.Point(257, 152);
+            this.buttonOperar.Location = new System.Drawing.Point(343, 187);
+            this.buttonOperar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonOperar.Name = "buttonOperar";
-            this.buttonOperar.Size = new System.Drawing.Size(135, 32);
+            this.buttonOperar.Size = new System.Drawing.Size(180, 39);
             this.buttonOperar.TabIndex = 7;
             this.buttonOperar.Text = "OPERAR";
             this.buttonOperar.UseVisualStyleBackColor = true;
@@ -140,9 +155,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(153, 207);
+            this.label4.Location = new System.Drawing.Point(204, 255);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 22);
+            this.label4.Size = new System.Drawing.Size(107, 26);
             this.label4.TabIndex = 8;
             this.label4.Text = "Resultado:";
             // 
@@ -150,17 +166,18 @@
             // 
             this.labelResultado.AutoSize = true;
             this.labelResultado.Font = new System.Drawing.Font("Trebuchet MS", 12F);
-            this.labelResultado.Location = new System.Drawing.Point(265, 207);
+            this.labelResultado.Location = new System.Drawing.Point(353, 255);
+            this.labelResultado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelResultado.Name = "labelResultado";
-            this.labelResultado.Size = new System.Drawing.Size(170, 22);
+            this.labelResultado.Size = new System.Drawing.Size(217, 26);
             this.labelResultado.TabIndex = 9;
-            this.labelResultado.Text = "Acá iría el resultado...";
+            this.labelResultado.Text = "...";
             // 
             // OperacionesBasicas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 243);
+            this.ClientSize = new System.Drawing.Size(888, 299);
             this.Controls.Add(this.labelResultado);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonOperar);
@@ -172,6 +189,7 @@
             this.Controls.Add(this.comboBoxOperaciones);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "OperacionesBasicas";
             this.Text = "Operaciones Básicas";
             this.menuStrip1.ResumeLayout(false);

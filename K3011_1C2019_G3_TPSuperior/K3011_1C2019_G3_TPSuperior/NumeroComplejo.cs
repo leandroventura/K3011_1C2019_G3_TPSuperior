@@ -138,23 +138,24 @@ namespace K3011_1C2019_G3_TPSuperior
                     z2 = z2.formaBinomica();
                     z3.a = this.a + z2.a;
                     z3.b = this.b + z2.b;
-                    return this;
+                    return z3;
                 }
             }
-            else
+            else //this en forma polar
             {
+                NumeroComplejo z = new NumeroComplejo(0, 0, Forma.Binomica);
+                z = this.formaBinomica(); //lo que tngo en this, lo paso a binomica y lo asigno a z
                 if (z2.forma == Forma.Binomica)
                 {
-                    this.formaBinomica();
-                    z3.a = this.a + z2.a;
-                    z3.b = this.b + z2.b;
+                    z3.a = z.a + z2.a;
+                    z3.b = z.b + z2.b;
                     return z3.formaPolar();
                 }
                 else
                 {
                     z2 = z2.formaBinomica();
-                    z3.a = this.a + z2.a;
-                    z3.b = this.b + z2.b;
+                    z3.a = z.a + z2.a;
+                    z3.b = z.b + z2.b;
                     return z3.formaPolar();
                 }
             }
@@ -176,23 +177,24 @@ namespace K3011_1C2019_G3_TPSuperior
                     z2 = z2.formaBinomica();
                     z3.a = this.a - z2.a;
                     z3.b = this.b - z2.b;
-                    return this;
+                    return z3;
                 }
             }
-            else
+            else //this en forma polar
             {
+                NumeroComplejo z = new NumeroComplejo(0, 0, Forma.Binomica);
+                z = this.formaBinomica(); //lo que tngo en this, lo paso a binomica y lo asigno a z
                 if (z2.forma == Forma.Binomica)
                 {
-                    this.formaBinomica();
-                    z3.a = this.a - z2.a;
-                    z3.b = this.b - z2.b;
+                    z3.a = z.a - z2.a;
+                    z3.b = z.b - z2.b;
                     return z3.formaPolar();
                 }
                 else
                 {
                     z2 = z2.formaBinomica();
-                    z3.a = this.a - z2.a;
-                    z3.b = this.b - z2.b;
+                    z3.a = z.a - z2.a;
+                    z3.b = z.b - z2.b;
                     return z3.formaPolar();
                 }
             }
@@ -201,20 +203,23 @@ namespace K3011_1C2019_G3_TPSuperior
         public NumeroComplejo multiplicarComplejos(NumeroComplejo z2)
         {
             NumeroComplejo z3 = new NumeroComplejo(0, 0, Forma.Binomica);
-            this.formaBinomica();
-            z2.formaBinomica();
-            z3.a = (this.a * z2.a) - (this.b * z2.b);
-            z3.b = (this.a * z2.b) + (z2.a * this.b);
+            NumeroComplejo z = new NumeroComplejo(0, 0, Forma.Binomica);
+            z = this.formaBinomica();
+            z2 = z2.formaBinomica();
+            z3.a = (z.a * z2.a) - (z.b * z2.b);
+            z3.b = (z.a * z2.b) + (z2.a * z.b);
             return z3;
         }
 
         public NumeroComplejo DividirComplejos(NumeroComplejo z2)
         {
             NumeroComplejo z3 = new NumeroComplejo(0, 0, Forma.Binomica);
-            this.formaBinomica();
-            z2.formaBinomica();
-            z3.a = ((this.a * z2.a) + (this.b * z2.b)) / (Math.Pow(z2.a,2) + Math.Pow(z2.b, 2));
-            z3.b = ((this.b * z2.a) - (this.a * z2.b)) / (Math.Pow(z2.a, 2) + Math.Pow(z2.b, 2));
+            NumeroComplejo z = new NumeroComplejo(0, 0, Forma.Binomica);
+
+            z = this.formaBinomica();
+            z2 = z2.formaBinomica();
+            z3.a = ((z.a * z2.a) + (z.b * z2.b)) / (Math.Pow(z2.a,2) + Math.Pow(z2.b, 2));
+            z3.b = ((z.b * z2.a) - (z.a * z2.b)) / (Math.Pow(z2.a, 2) + Math.Pow(z2.b, 2));
             return z3;
         }
     }

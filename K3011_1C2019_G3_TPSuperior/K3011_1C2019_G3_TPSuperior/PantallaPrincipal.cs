@@ -26,6 +26,13 @@ namespace K3011_1C2019_G3_TPSuperior
         {
 
         }
+        private void básicasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OperacionesBasicas form = new OperacionesBasicas();
+
+            form.Show();
+
+        }
 
         private void label3_Click(object sender, EventArgs e)
         {
