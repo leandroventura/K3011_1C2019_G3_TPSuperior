@@ -94,12 +94,16 @@
             this.avanzadasToolStripMenuItem.Name = "avanzadasToolStripMenuItem";
             this.avanzadasToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.avanzadasToolStripMenuItem.Text = "Avanzadas";
+            this.avanzadasToolStripMenuItem.Click += new System.EventHandler(this.avanzadasToolStripMenuItem_Click);
+
             // 
             // fasoresToolStripMenuItem
             // 
             this.fasoresToolStripMenuItem.Name = "fasoresToolStripMenuItem";
             this.fasoresToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.fasoresToolStripMenuItem.Text = "Fasores";
+            this.fasoresToolStripMenuItem.Click += new System.EventHandler(this.fasoresToolStripMenuItem_Click);
+
             // 
             // label1
             // 

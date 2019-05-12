@@ -33,7 +33,22 @@ namespace K3011_1C2019_G3_TPSuperior
             form.Show();
 
         }
+        
+        private void avanzadasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OperacionesAvanzadas form = new OperacionesAvanzadas();
 
+            form.Show();
+
+        }
+        private void fasoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OperacionesFasores form = new OperacionesFasores();
+
+            form.Show();
+
+        }
+        
         private void label3_Click(object sender, EventArgs e)
         {
 

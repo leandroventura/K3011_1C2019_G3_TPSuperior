@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace K3011_1C2019_G3_TPSuperior
 {
-    class NumeroComplejo
+    public class NumeroComplejo
     {
         public enum Forma
         {
@@ -221,6 +221,21 @@ namespace K3011_1C2019_G3_TPSuperior
             z3.a = ((z.a * z2.a) + (z.b * z2.b)) / (Math.Pow(z2.a,2) + Math.Pow(z2.b, 2));
             z3.b = ((z.b * z2.a) - (z.a * z2.b)) / (Math.Pow(z2.a, 2) + Math.Pow(z2.b, 2));
             return z3;
+        }
+
+        public NumeroComplejo potencia(int exponente)
+        {
+            NumeroComplejo zres = new NumeroComplejo(0, 0, Forma.Polar);
+            double modulo;
+            double argumento;
+
+            modulo = Math.Pow(this.formaPolar().a,exponente); //el modulo es el modulo^n
+            argumento = exponente * this.formaPolar().b;
+
+            zres.a = modulo;
+            zres.b = argumento;
+
+            return zres;
         }
     }
 

@@ -84,7 +84,7 @@ namespace K3011_1C2019_G3_TPSuperior
             }
         }
 
-        private bool esComplejoValido(string complejo)
+        public bool esComplejoValido(string complejo)
         {
             //aca se validaria la expresion regular y se devolveria el resultado de la validacion
             //expresion para forma polar: ^[[][-]?[0-9]+([,][0-9]+)?[;][-]?[0-9]+([,][0-9]+)?[]]$
@@ -105,9 +105,8 @@ namespace K3011_1C2019_G3_TPSuperior
                 return false;
             }
         }
-        private NumeroComplejo parsearComplejo(string complejo)
+        public NumeroComplejo parsearComplejo(string complejo)
         {
-
             Regex ERPolar = new Regex("^[[](?<a>[-]?[0-9]+([,][0-9]+)?)[;](?<b>[-]?[0-9]+([,][0-9]+)?)[]]$");
             Regex ERBinomica = new Regex("^[(](?<a>[-]?[0-9]+([,][0-9]+)?)[;](?<b>[-]?[0-9]+([,][0-9]+)?)[)]$");
             if (ERPolar.IsMatch(complejo))
