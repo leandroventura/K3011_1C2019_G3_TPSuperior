@@ -245,12 +245,18 @@ namespace K3011_1C2019_G3_TPSuperior
             double argumento;
 
             modulo = Math.Pow(this.formaPolar().a, (double)(1 / radicando));
-            argumento = this.formaPolar().b / radicando;
+            List<NumeroComplejo> listaResultados = new List<NumeroComplejo>();
 
             zres.a = modulo;
-            zres.b = argumento;
+            for(int i = 0; i<radicando; i++)
+            {
+                argumento = (this.formaPolar().b + 2*i*Math.PI)/ radicando;
+                zres.b = argumento;
+                listaResultados.Add(zres);
+            }
+           
 
-            return zres;
+            return listaResultados;
         }
     }
 
