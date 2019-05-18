@@ -249,6 +249,8 @@ namespace K3011_1C2019_G3_TPSuperior
 
             zres.a = modulo;
             zres.b = argumento;
+
+            return zres;
         }
     }
 
