@@ -68,7 +68,7 @@ namespace K3011_1C2019_G3_TPSuperior
 
                                 break;
                             case 1: //Radicación
-                                //zres = z1.raiz(n);
+                                zres = z1.raiz(n);
 
                                 break;
                         }

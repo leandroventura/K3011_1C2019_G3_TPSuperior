@@ -237,6 +237,19 @@ namespace K3011_1C2019_G3_TPSuperior
 
             return zres;
         }
+
+        public NumeroComplejo raiz(int radicando)
+        {
+            NumeroComplejo zres = new NumeroComplejo(0, 0, Forma.Polar);
+            double modulo;
+            double argumento;
+
+            modulo = Math.Pow(this.formaPolar().a, (double)(1 / radicando));
+            argumento = this.formaPolar().b / radicando;
+
+            zres.a = modulo;
+            zres.b = argumento;
+        }
     }
 
 }
