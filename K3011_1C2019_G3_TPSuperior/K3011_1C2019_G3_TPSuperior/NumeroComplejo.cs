@@ -238,23 +238,24 @@ namespace K3011_1C2019_G3_TPSuperior
             return zres;
         }
 
-        public NumeroComplejo raiz(int radicando)
+        public List<NumeroComplejo> raiz(int indice)
         {
-            NumeroComplejo zres = new NumeroComplejo(0, 0, Forma.Polar);
+            //NumeroComplejo zres = new NumeroComplejo(0, 0, Forma.Polar);
             double modulo;
             double argumento;
-
-            modulo = Math.Pow(this.formaPolar().a, (double)(1 / radicando));
             List<NumeroComplejo> listaResultados = new List<NumeroComplejo>();
 
-            zres.a = modulo;
-            for(int i = 0; i<radicando; i++)
+            modulo = Math.Pow(this.formaPolar().a, (1 / (double)indice));
+
+            //zres.a = modulo;
+            for(int i = 0; i< indice; i++)
             {
-                argumento = (this.formaPolar().b + 2*i*Math.PI)/ radicando;
-                zres.b = argumento;
-                listaResultados.Add(zres);
+                argumento = (double)(this.formaPolar().b + 2*i*Math.PI)/ indice;
+                //zres.b = argumento;
+                //listaResultados.Add(zres);
+                listaResultados.Add(new NumeroComplejo(modulo, argumento, Forma.Polar));
+
             }
-           
 
             return listaResultados;
         }

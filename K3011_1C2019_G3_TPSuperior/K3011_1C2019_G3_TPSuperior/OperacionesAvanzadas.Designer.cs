@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelResultado = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonOperar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,32 +39,22 @@
             this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxIndice = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // labelResultado
-            // 
-            this.labelResultado.AutoSize = true;
-            this.labelResultado.Font = new System.Drawing.Font("Trebuchet MS", 12F);
-            this.labelResultado.Location = new System.Drawing.Point(380, 252);
-            this.labelResultado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelResultado.Name = "labelResultado";
-            this.labelResultado.Size = new System.Drawing.Size(33, 26);
-            this.labelResultado.TabIndex = 16;
-            this.labelResultado.Text = "...";
-            this.labelResultado.Click += new System.EventHandler(this.labelResultado_Click);
             // 
             // label4
             // 
             this.label4.AllowDrop = true;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(180, 252);
+            this.label4.Location = new System.Drawing.Point(114, 252);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(230, 26);
+            this.label4.Size = new System.Drawing.Size(193, 26);
             this.label4.TabIndex = 15;
-            this.label4.Text = "Resultado principal:";
+            this.label4.Text = "Resultado:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // buttonOperar
             // 
@@ -170,14 +159,23 @@
             this.textBoxIndice.Size = new System.Drawing.Size(219, 31);
             this.textBoxIndice.TabIndex = 19;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(325, 252);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(335, 24);
+            this.comboBox1.TabIndex = 20;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // OperacionesAvanzadas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 296);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBoxIndice);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.labelResultado);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonOperar);
             this.Controls.Add(this.label2);
@@ -197,8 +195,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label labelResultado;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button buttonOperar;
         private System.Windows.Forms.Label label2;
@@ -210,5 +206,6 @@
         private System.Windows.Forms.ToolStripMenuItem cerrarToolStripMenuItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxIndice;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

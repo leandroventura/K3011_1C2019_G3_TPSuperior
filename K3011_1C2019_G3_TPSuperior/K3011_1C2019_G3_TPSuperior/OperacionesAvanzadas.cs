@@ -53,7 +53,6 @@ namespace K3011_1C2019_G3_TPSuperior
                     int n;
                     NumeroComplejo z1 = OB.parsearComplejo(textBoxComplejo.Text);
                     Int32.TryParse(textBoxIndice.Text, out n);
-                    NumeroComplejo zres = new NumeroComplejo(0, 0, NumeroComplejo.Forma.Binomica);
 
                     if (comboBoxOperaciones.SelectedIndex == -1)
                     {
@@ -64,25 +63,41 @@ namespace K3011_1C2019_G3_TPSuperior
                         switch (comboBoxOperaciones.SelectedIndex)
                         {
                             case 0: //Potenciación
+                                NumeroComplejo zres = new NumeroComplejo(0, 0, NumeroComplejo.Forma.Binomica);
                                 zres = z1.potencia(n);
-
+                                comboBox1.Items.Clear();
+                                comboBox1.Items.Add("(" + Math.Round(zres.formaBinomica().a, 3) + " ; " + Math.Round(zres.formaBinomica().b, 3) + ")" + " - [" + Math.Round(zres.formaPolar().a, 3) + " ; " + Math.Round(zres.formaPolar().b, 3) + " rad]");
+                                comboBox1.SelectedIndex = 0;
                                 break;
                             case 1: //Radicación
-                                zres = z1.raiz(n);
-
+                                List<NumeroComplejo> listaResultados = z1.raiz(n);
+                                int k = 0;
+                                comboBox1.Items.Clear();
+                                
+                                listaResultados.ForEach(delegate (NumeroComplejo Z)
+                                {
+                                    comboBox1.Items.Add("K=" + k + "-> (" + Math.Round(Z.formaBinomica().a, 3) + " ; " + Math.Round(Z.formaBinomica().b, 3) + ")" + " - [" + Math.Round(Z.formaPolar().a, 3) + " ; " + Math.Round(Z.formaPolar().b, 3) + " rad]");
+                                    k++;
+                                });
+                                comboBox1.SelectedIndex = 0;
                                 break;
                         }
-                        //Despues distinguir si imprimir [a,b] o (a,b)
-                        labelResultado.Text = "(" + Math.Round(zres.formaBinomica().a, 3) + " ; " + Math.Round(zres.formaBinomica().b, 3) + ")" + " - [" + Math.Round(zres.formaPolar().a, 3) + " ; " + Math.Round(zres.formaPolar().b, 3) + " rad]";
-
-                        //armo un case con todas las posibles operaciones seleccionadas
-                        //por cada operacion, opero con los complejos
                     }
                 }
             }
         }
 
         private void labelResultado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }

@@ -133,7 +133,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(195, 44);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Ventura, Leandro Emanuel\r\nMarceletti, Marcelo\nRíos,Brian";
+            this.label3.Text = "Daniel\r\nIvan\r\nRíos,Brian";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
