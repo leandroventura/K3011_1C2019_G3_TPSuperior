@@ -140,5 +140,10 @@ namespace K3011_1C2019_G3_TPSuperior
         {
 
         }
+
+        private void comboBoxOperaciones_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

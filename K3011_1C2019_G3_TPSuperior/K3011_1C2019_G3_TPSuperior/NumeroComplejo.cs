@@ -261,4 +261,71 @@ namespace K3011_1C2019_G3_TPSuperior
         }
     }
 
+    public class Funcion
+    {
+
+        public enum Angulo
+        {
+            Cos,
+            Sen
+        }
+
+        public double amplitud;
+        public Angulo angulo;
+        public double frecuencia;
+        public double fase;
+
+        public Funcion(double unaAmplitud, Angulo unAngulo,
+            double unaFrecuencia, double unaFase)
+        {
+            //Verifico la frecuencia:
+            if (amplitud < 0)
+            {
+                throw new Exception("La amplitud no puede ser negativa");
+            }
+
+            this.amplitud = unaAmplitud;
+            this.frecuencia = unaFrecuencia;
+            this.fase = unaFase;
+            this.angulo = unAngulo;
+
+            
+        }
+
+        public Funcion sumarFunciones (Funcion unaFuncion, Funcion otraFuncion)
+        {
+            var faseUnaFuncion = unaFuncion.fase;
+            var faseOtraFuncion = otraFuncion.fase;
+
+            //Verifico que la frecuencia sea la misma
+            if (Math.Abs(unaFuncion.frecuencia - otraFuncion.frecuencia) != 0)
+            {
+                throw new Exception("Error: las frecuencias son distintas");
+            }
+            //Voy a trabajar todo a senos o pasarlo según necesite
+            if (unaFuncion.angulo == Angulo.Cos)
+            {
+                faseUnaFuncion = faseUnaFuncion + Math.PI / 2;
+            }
+
+            if (otraFuncion.angulo == Angulo.Cos)
+            {
+                faseOtraFuncion = faseOtraFuncion + Math.PI / 2;
+            }
+
+            //Los convierto a complejos
+            var fasorDeUnaFuncion = new NumeroComplejo(unaFuncion.amplitud, faseUnaFuncion, NumeroComplejo.Forma.Polar);
+            var fasorDeOtraFuncion = new NumeroComplejo(otraFuncion.amplitud, faseOtraFuncion, NumeroComplejo.Forma.Polar);
+
+            var resultadoSuma = fasorDeOtraFuncion.sumarComplejos(fasorDeOtraFuncion);
+
+            var resultadoFase = resultadoSuma.b;
+
+            return new Funcion(resultadoSuma.a, Angulo.Sen, otraFuncion.frecuencia, resultadoFase);
+
+        }
+
+
+    }
+
 }

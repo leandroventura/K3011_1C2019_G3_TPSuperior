@@ -57,6 +57,7 @@
             this.comboBoxOperaciones.Name = "comboBoxOperaciones";
             this.comboBoxOperaciones.Size = new System.Drawing.Size(208, 32);
             this.comboBoxOperaciones.TabIndex = 0;
+            this.comboBoxOperaciones.SelectedIndexChanged += new System.EventHandler(this.comboBoxOperaciones_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -77,8 +78,6 @@
             this.textBoxComplejo1.Name = "textBoxComplejo1";
             this.textBoxComplejo1.Size = new System.Drawing.Size(219, 31);
             this.textBoxComplejo1.TabIndex = 2;
-            this.textBoxComplejo1.Text = "";
-            
             this.textBoxComplejo1.TextChanged += new System.EventHandler(this.textBoxComplejo1_TextChanged);
             // 
             // label2
@@ -138,7 +137,6 @@
             this.textBoxComplejo2.Name = "textBoxComplejo2";
             this.textBoxComplejo2.Size = new System.Drawing.Size(219, 31);
             this.textBoxComplejo2.TabIndex = 6;
-            this.textBoxComplejo2.Text = "";
             // 
             // buttonOperar
             // 
@@ -170,7 +168,7 @@
             this.labelResultado.Location = new System.Drawing.Point(353, 255);
             this.labelResultado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelResultado.Name = "labelResultado";
-            this.labelResultado.Size = new System.Drawing.Size(217, 26);
+            this.labelResultado.Size = new System.Drawing.Size(33, 26);
             this.labelResultado.TabIndex = 9;
             this.labelResultado.Text = "...";
             // 
