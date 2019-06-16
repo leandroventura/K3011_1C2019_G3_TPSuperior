@@ -59,8 +59,25 @@ namespace K3011_1C2019_G3_TPSuperior
                 //si no es imaginario puro
                 if (parteReal != 0)
                 {
-                    z.b = Math.Atan(parteIm / parteReal); //chequear que devuelva en radianes
-                    z = z.corregirArgumento(cuadrante);
+                    
+                    if(parteIm != 0)
+                    {
+                        z.b = Math.Atan(parteIm / parteReal);
+                        z = z.corregirArgumento(cuadrante);
+                    }
+                    else //está sobre el eje real
+                    {
+                        if (parteReal > 0)
+                        {
+                            z.b = 0;
+                        }
+                        else
+                        {
+                            z.b = Math.PI;
+                        }
+                    }
+                    
+                    
                 }
                 //si es imaginario puro
                 else
@@ -264,19 +281,18 @@ namespace K3011_1C2019_G3_TPSuperior
     public class Funcion
     {
 
-        public enum Angulo
+        public enum TipoFuncion
         {
             Cos,
             Sen
         }
 
         public double amplitud;
-        public Angulo angulo;
+        public TipoFuncion tipoFuncion;
         public double frecuencia;
         public double fase;
 
-        public Funcion(double unaAmplitud, Angulo unAngulo,
-            double unaFrecuencia, double unaFase)
+        public Funcion(double unaAmplitud, TipoFuncion tipoFuncion, double unaFrecuencia, double unaFase)
         {
             //Verifico la frecuencia:
             if (amplitud < 0)
@@ -287,7 +303,7 @@ namespace K3011_1C2019_G3_TPSuperior
             this.amplitud = unaAmplitud;
             this.frecuencia = unaFrecuencia;
             this.fase = unaFase;
-            this.angulo = unAngulo;
+            this.tipoFuncion = tipoFuncion;
 
             
         }
@@ -297,18 +313,14 @@ namespace K3011_1C2019_G3_TPSuperior
             var faseUnaFuncion = unaFuncion.fase;
             var faseOtraFuncion = otraFuncion.fase;
 
-            //Verifico que la frecuencia sea la misma
-            if (Math.Abs(unaFuncion.frecuencia - otraFuncion.frecuencia) != 0)
-            {
-                throw new Exception("Error: las frecuencias son distintas");
-            }
+           
             //Voy a trabajar todo a senos o pasarlo según necesite
-            if (unaFuncion.angulo == Angulo.Cos)
+            if (unaFuncion.tipoFuncion == TipoFuncion.Cos)
             {
                 faseUnaFuncion = faseUnaFuncion + Math.PI / 2;
             }
 
-            if (otraFuncion.angulo == Angulo.Cos)
+            if (otraFuncion.tipoFuncion == TipoFuncion.Cos)
             {
                 faseOtraFuncion = faseOtraFuncion + Math.PI / 2;
             }
@@ -321,7 +333,7 @@ namespace K3011_1C2019_G3_TPSuperior
 
             var resultadoFase = resultadoSuma.b;
 
-            return new Funcion(resultadoSuma.a, Angulo.Sen, otraFuncion.frecuencia, resultadoFase);
+            return new Funcion(resultadoSuma.a, TipoFuncion.Sen, otraFuncion.frecuencia, resultadoFase);
 
         }
 

@@ -133,7 +133,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(195, 44);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Daniel\r\nIvan\r\nRíos,Brian";
+            this.label3.Text = "Asorey, Christian\nLose, Ivan\nMarcelletti, Daniel\r\nRíos, Brian";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
@@ -151,6 +151,8 @@
             this.transformacionesToolStripMenuItem.Name = "transformacionesToolStripMenuItem";
             this.transformacionesToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.transformacionesToolStripMenuItem.Text = "Transformaciones";
+            this.transformacionesToolStripMenuItem.Click += new System.EventHandler(this.transformacionesToolStripMenuItem_Click);
+
             // 
             // PantallaPrincipal
             // 
